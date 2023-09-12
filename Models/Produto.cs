@@ -11,5 +11,6 @@ namespace ecommerce_Solutech.Models {
         public float EstoqueMedio { get; set; }
         public float EstoqueMin { get; set; }
         public DateTime VencimentoProduto { get; set;}
+        public double preco { get; set; }
     }
 }
