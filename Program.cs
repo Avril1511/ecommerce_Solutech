@@ -12,7 +12,6 @@ namespace ecommerce_Solutech {
                     options.UseMySql(
                        builder.Configuration.GetConnectionString("DBString"),
                         _mySqlServerVersion
-
                        );
                 }
              );

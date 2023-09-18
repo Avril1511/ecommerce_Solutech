@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ecommerce_Solutech.Models {
     public class Pedido {
+        
         public int id { get; set; }
 
         public int IdEndereco { get; set; }
@@ -13,9 +15,12 @@ namespace ecommerce_Solutech.Models {
         public DateTime DataPedido { get; set; }
 
         [ForeignKey("IdCliente")]
-        public Cliente Cliente { get; set;}
+        public Cliente cliente { get; set;}
 
         [ForeignKey("IdEndereco")]
         public Endereco endereco { get; set; }
+
+        public ICollection<ItemDoPedido> ItemDoPedidos { get; set; }     
+        
     }
 }
