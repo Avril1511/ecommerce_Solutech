@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ecommerce_Solutech.Models {
     public class Produto {
         [Key]
-        public int? id { get; set; }
+        public int? Id { get; set; }
         public string Nome { get; set; }
         public float Estoque { get; set; }
         public double Preco { get; set; }
@@ -11,8 +12,7 @@ namespace ecommerce_Solutech.Models {
         public float EstoqueMedio { get; set; }
         public float EstoqueMin { get; set; }
         public DateTime VencimentoProduto { get; set; }
-        public double preco { get; set; }
 
-
+        public ICollection<ItemDoPedido> ItemDoPedidos { get; set; }
     }
 }
