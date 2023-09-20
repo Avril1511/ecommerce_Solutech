@@ -18,7 +18,7 @@ namespace ecommerce_Solutech.Models {
         public Cliente cliente { get; set;}
 
         [ForeignKey("IdEndereco")]
-        public Endereco endereco { get; set; }
+        public Endereco endereco { get; set; } 
 
         public ICollection<ItemDoPedido> ItemDoPedidos { get; set; }     
         
