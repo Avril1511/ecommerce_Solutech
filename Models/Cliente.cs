@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ecommerce_Solutech.Models{
     public class Cliente{
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int IdEndereco { get; set; }
         public string Nome { get; set; }
         public string email { get; set; }
@@ -15,7 +15,8 @@ namespace ecommerce_Solutech.Models{
         public string HashSenha { get; set;}
 
         [ForeignKey("IdEndereco")]
-        public Endereco Endereco { get; set; }
+        public Endereco? Endereco { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
 
     }
 }

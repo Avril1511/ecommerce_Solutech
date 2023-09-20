@@ -21,7 +21,7 @@ namespace ecommerce_Solutech.Migrations
 
             modelBuilder.Entity("ecommerce_Solutech.Models.Cliente", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -104,7 +104,7 @@ namespace ecommerce_Solutech.Migrations
                     b.Property<int>("IdPedido")
                         .HasColumnType("int");
 
-                    b.Property<int>("Pedido")
+                    b.Property<int>("IdProduto")
                         .HasColumnType("int");
 
                     b.Property<int?>("ProdutoId")
@@ -116,11 +116,13 @@ namespace ecommerce_Solutech.Migrations
                     b.Property<double>("valor")
                         .HasColumnType("double");
 
-                    b.HasKey("IdPedido");
+                    b.HasKey("IdPedido", "IdProduto");
+
+                    b.HasIndex("IdProduto");
 
                     b.HasIndex("ProdutoId");
 
-                    b.ToTable("ItemDoPedido");
+                    b.ToTable("itemDoPedido");
                 });
 
             modelBuilder.Entity("ecommerce_Solutech.Models.Pedido", b =>
@@ -138,7 +140,7 @@ namespace ecommerce_Solutech.Migrations
                     b.Property<int>("IdEndereco")
                         .HasColumnType("int");
 
-                    b.Property<double>("valortotal")
+                    b.Property<double>("valorTotal")
                         .HasColumnType("double");
 
                     b.HasKey("id");
@@ -157,15 +159,6 @@ namespace ecommerce_Solutech.Migrations
                         .HasColumnType("int");
 
                     b.Property<float>("Estoque")
-                        .HasColumnType("float");
-
-                    b.Property<float>("EstoqueMax")
-                        .HasColumnType("float");
-
-                    b.Property<float>("EstoqueMedio")
-                        .HasColumnType("float");
-
-                    b.Property<float>("EstoqueMin")
                         .HasColumnType("float");
 
                     b.Property<string>("Nome")
@@ -213,19 +206,27 @@ namespace ecommerce_Solutech.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ecommerce_Solutech.Models.Produto", "produto")
+                        .WithMany()
+                        .HasForeignKey("IdProduto")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("ecommerce_Solutech.Models.Produto", null)
                         .WithMany("ItemDoPedidos")
                         .HasForeignKey("ProdutoId");
 
                     b.Navigation("pedido");
+
+                    b.Navigation("produto");
                 });
 
             modelBuilder.Entity("ecommerce_Solutech.Models.Pedido", b =>
                 {
                     b.HasOne("ecommerce_Solutech.Models.Cliente", "cliente")
-                        .WithMany()
+                        .WithMany("Pedidos")
                         .HasForeignKey("IdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ecommerce_Solutech.Models.Endereco", "endereco")
@@ -237,6 +238,11 @@ namespace ecommerce_Solutech.Migrations
                     b.Navigation("cliente");
 
                     b.Navigation("endereco");
+                });
+
+            modelBuilder.Entity("ecommerce_Solutech.Models.Cliente", b =>
+                {
+                    b.Navigation("Pedidos");
                 });
 
             modelBuilder.Entity("ecommerce_Solutech.Models.Pedido", b =>
