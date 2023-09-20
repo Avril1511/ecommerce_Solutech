@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ecommerce_Solutech.Models {
     public class Pedido {
-        
+        [Key]
         public int id { get; set; }
 
         public int IdEndereco { get; set; }
 
         public int IdCliente { get; set; }
 
-        public Double valortotal { get; set; }
+        public double valorTotal { get; set; }
 
         public DateTime DataPedido { get; set; }
 

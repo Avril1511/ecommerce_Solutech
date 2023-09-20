@@ -13,7 +13,8 @@ namespace ecommerce_Solutech {
                        builder.Configuration.GetConnectionString("DBString"),
                         _mySqlServerVersion
                        );
-                }
+
+				}
              );
             builder.Services.AddRazorPages();
 

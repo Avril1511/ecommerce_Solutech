@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ecommerce_Solutech.Migrations
 {
     /// <inheritdoc />
-    public partial class v1 : Migration
+    public partial class v7 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,9 +59,6 @@ namespace ecommerce_Solutech.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Estoque = table.Column<float>(type: "float", nullable: false),
                     Preco = table.Column<double>(type: "double", nullable: false),
-                    EstoqueMax = table.Column<float>(type: "float", nullable: false),
-                    EstoqueMedio = table.Column<float>(type: "float", nullable: false),
-                    EstoqueMin = table.Column<float>(type: "float", nullable: false),
                     VencimentoProduto = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
@@ -108,7 +105,7 @@ namespace ecommerce_Solutech.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     IdEndereco = table.Column<int>(type: "int", nullable: false),
                     IdCliente = table.Column<int>(type: "int", nullable: false),
-                    valortotal = table.Column<double>(type: "double", nullable: false),
+                    valorTotal = table.Column<double>(type: "double", nullable: false),
                     DataPedido = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
@@ -125,31 +122,37 @@ namespace ecommerce_Solutech.Migrations
                         column: x => x.IdCliente,
                         principalTable: "cliente",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ItemDoPedido",
+                name: "itemDoPedido",
                 columns: table => new
                 {
                     IdPedido = table.Column<int>(type: "int", nullable: false),
-                    Pedido = table.Column<int>(type: "int", nullable: false),
+                    IdProduto = table.Column<int>(type: "int", nullable: false),
                     quantidade = table.Column<int>(type: "int", nullable: false),
                     valor = table.Column<double>(type: "double", nullable: false),
                     ProdutoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemDoPedido", x => x.IdPedido);
+                    table.PrimaryKey("PK_itemDoPedido", x => new { x.IdPedido, x.IdProduto });
                     table.ForeignKey(
-                        name: "FK_ItemDoPedido_Pedido_IdPedido",
+                        name: "FK_itemDoPedido_Pedido_IdPedido",
                         column: x => x.IdPedido,
                         principalTable: "Pedido",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ItemDoPedido_produtos_ProdutoId",
+                        name: "FK_itemDoPedido_produtos_IdProduto",
+                        column: x => x.IdProduto,
+                        principalTable: "produtos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_itemDoPedido_produtos_ProdutoId",
                         column: x => x.ProdutoId,
                         principalTable: "produtos",
                         principalColumn: "Id");
@@ -167,8 +170,13 @@ namespace ecommerce_Solutech.Migrations
                 column: "IdEndereco");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemDoPedido_ProdutoId",
-                table: "ItemDoPedido",
+                name: "IX_itemDoPedido_IdProduto",
+                table: "itemDoPedido",
+                column: "IdProduto");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_itemDoPedido_ProdutoId",
+                table: "itemDoPedido",
                 column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
@@ -186,7 +194,7 @@ namespace ecommerce_Solutech.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ItemDoPedido");
+                name: "itemDoPedido");
 
             migrationBuilder.DropTable(
                 name: "Pedido");
