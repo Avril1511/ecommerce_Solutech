@@ -1,3 +1,4 @@
+using ecommerce_Solutech.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ecommerce_Solutech {
