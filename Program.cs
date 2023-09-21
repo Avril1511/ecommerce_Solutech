@@ -1,4 +1,5 @@
-using Microsoft.EntityFrameworkCore;
+ using Microsoft.EntityFrameworkCore;
+using ecommerce_Solutech.Data;
 
 namespace ecommerce_Solutech {
     public class Program {
