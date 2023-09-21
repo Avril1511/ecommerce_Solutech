@@ -1,0 +1,33 @@
+﻿@page
+@model ecommerce_Solutech.Pages.CRUD.ListarModel
+@{
+}
+
+<table>
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nome</td>
+			<td>Email</td>
+			<td>Ações</td>
+		</tr>
+	</thead>
+	<tbody>@foreach(var cliente in Model.Clientes) {
+		<tr>
+			<td>@cliente.Id</td>
+			<td>@cliente.Nome</td>
+			<td>@cliente.email</td>
+			<td>
+				<a>Editar</a>	
+				<form
+					method="post"
+					asp-page-handler="delete"
+					asp-route-id="@cliente.Id"
+				>
+					<button>Excluir</button>
+				</form>	
+			</td>
+		</tr>
+
+	}</tbody>
+</table>

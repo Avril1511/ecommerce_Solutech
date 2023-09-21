@@ -10,9 +10,7 @@ using ecommerce_Solutech;
 
 namespace ecommerce_Solutech.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20230920182751_v7")]
-    partial class v7
+    public partial class v7 : Migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

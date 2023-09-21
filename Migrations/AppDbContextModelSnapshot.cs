@@ -9,7 +9,6 @@ using ecommerce_Solutech;
 
 namespace ecommerce_Solutech.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
