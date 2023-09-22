@@ -3,7 +3,7 @@
 @{
 }
 
-<table>
+
 	<thead>
 		<tr>
 			<td>Id</td>
@@ -11,14 +11,20 @@
 			<td>Email</td>
 			<td>Ações</td>
 		</tr>
-	</thead>
+<table class="table">
+</thead>
 	<tbody>@foreach(var cliente in Model.Clientes) {
 		<tr>
 			<td>@cliente.Id</td>
 			<td>@cliente.Nome</td>
 			<td>@cliente.email</td>
 			<td>
-				<a>Editar</a>	
+			<a
+				asp-page="./Alterar"
+				asp-router-id="@cliente.Id"
+			>
+				Editar
+			</a>	
 				<form
 					method="post"
 					asp-page-handler="delete"

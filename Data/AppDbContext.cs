@@ -39,6 +39,5 @@ namespace ecommerce_Solutech.Data{
         public DbSet<Produto> produtos { get; set; }       
         public DbSet<Endereco> enderecos { get; set; }
         public DbSet<ItemDoPedido> itemDoPedido { get; set; }
-
-    }     
+	}     
 }
