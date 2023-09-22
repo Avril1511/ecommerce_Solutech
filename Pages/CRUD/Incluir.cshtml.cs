@@ -24,7 +24,7 @@ namespace ecommerce_Solutech.Pages.CRUD
 
             await _context.SaveChangesAsync();
 
-            return Page();
+            return RedirectToPage("./Listar");
 
 
 

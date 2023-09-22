@@ -2,8 +2,10 @@
 @model ecommerce_Solutech.Pages.CRUD.ListarModel
 @{
 }
-
-<table>
+<a class="btn btn-outline-success" asp-page="./Incluir">
+	Incluir<
+</a>
+<table class=" table"> 
 	<thead>
 		<tr>
 			<td>Id</td>
@@ -23,13 +25,19 @@
 			<td>@cliente.email</td>
 			<td>@cliente.login</td>
 			<td>
-				<a>Editar</a>
+				<a 
+					asp-page="./Alterar"
+				    asp-route-id="@cliente.Id"
+					   class="btn btn-outline-success">
+					Editar
+				</a>
+
 				<form
 					method="post"
 					asp-page-handler="delete"
 					asp-route-id="@cliente.Id"
 				>
-					<button>Excluir</button> 
+						<button class="btn btn-outline-danger">Excluir</button>
 
 				</form>
 	 		</td>

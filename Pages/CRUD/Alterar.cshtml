@@ -1,16 +1,19 @@
 ﻿@page
-@model ecommerce_Solutech.Pages.CRUD.IncluirModel
+@model ecommerce_Solutech.Pages.CRUD.AlterarModel
 @{
 }
+
 <form method="post">
+	
+	<input asp-for="cliente.Id" type="hidden" />
 	Nome:
-	<input class="form-control" asp-for="cliente.Nome"/>
+	<input class="form-control" asp-for="cliente.Nome" />
 	<br />
 	Email:
 	<input class="form-control" asp-for="cliente.email" />
 	<br />
 	Telefone:
-	<input class ="form-control" asp-for="cliente.telefone" />
+	<input class="form-control" asp-for="cliente.telefone" />
 	<br />
 	login:
 	<input class="form-control" asp-for="cliente.login" />
@@ -20,6 +23,6 @@
 	<br />
 	<br />
 	<br />
-	<input type="submit" value="Enviar"/>
+	<input type="submit" value="Enviar" />
 
 </form>
