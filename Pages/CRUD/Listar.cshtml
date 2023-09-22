@@ -3,6 +3,10 @@
 @{
 }
 
+
+<a class="btn btn-primary" asp-page="./Incluir">
+    Incluir novo Cliente
+</a>
 <table>
     <thead>
         <tr>
@@ -20,14 +24,19 @@
             <td>@cliente.email</td>
             <td>@cliente.telefone</td>
             <td>@cliente.Endereco</td>
-                <a>Editar</a>
-                <form
-                    method="post"
-                    asp-page-handler="delete"
-                    asp-route-id="@cliente.Id"
+            <td>
+                <a
+                        asp-page="./Alterar"
+                        asp-route-id="@cliente.Id"
                 >
-                    <button>Excluir</button>
-               </form>     
+                Editar</a>
+                <form
+                        method="post"
+                        asp-page-handler="delete"
+                        asp-route-id="@cliente.Id"
+                    >
+                    <button class="btn btn-danger">Excluir</button>
+                </form>
             </td>
         </tr>
     }</tbody>

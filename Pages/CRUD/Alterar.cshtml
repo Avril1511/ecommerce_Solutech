@@ -1,0 +1,27 @@
+﻿@page
+@model ecommerce_Solutech.Pages.CRUD.AlterarModel
+@{
+}
+<form method="post">
+	<input. typeof="hidden"
+	
+	Nome:
+	<input asp-for="cliente.Id" />
+	<input asp-for="cliente.Nome" />
+	<br />
+	Email:
+	<input asp-for="cliente.email" />
+	<br />
+	Telefone:
+	<input asp-for="cliente.telefone" />
+	<br />
+	login:
+	<input asp-for="cliente.login" />
+	<br />
+	Senha:
+	<input asp-for="cliente.HashSenha" />
+	<br />
+	<br />
+	<input type="submit" value="Enviar" />
+
+</form>
