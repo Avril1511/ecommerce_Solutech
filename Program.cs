@@ -1,3 +1,4 @@
+using ecommerce_Solutech.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ecommerce_Solutech {
@@ -5,7 +6,7 @@ namespace ecommerce_Solutech {
         public static void Main(string[] args) {
             var builder = WebApplication.CreateBuilder(args);
 
-            var _mySqlServerVersion = new MySqlServerVersion(new Version(8, 0, 33));
+            var _mySqlServerVersion = new MySqlServerVersion(new Version(8, 0, 34));
 
             builder.Services.AddDbContext<AppDbContext>(
                 options => {

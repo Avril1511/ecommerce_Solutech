@@ -1,12 +1,13 @@
 
 ﻿using ecommerce_Solutech.Pages;
-﻿using ecommerce_Solutech.Pages;
 ﻿using ecommerce_Solutech.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ecommerce_Solutech {
+namespace ecommerce_Solutech.Data {
     public class AppDbContext : DbContext {
-        public AppDbContext(DbContextOptions options) : base(options) {
+		
+
+		public AppDbContext(DbContextOptions options) : base(options) {
         }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder) {
@@ -40,6 +41,6 @@ namespace ecommerce_Solutech {
         public DbSet<Produto> produtos { get; set; }       
         public DbSet<Endereco> enderecos { get; set; }
         public DbSet<ItemDoPedido> itemDoPedido { get; set; }
-
+    
     }     
 }

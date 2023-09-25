@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ecommerce_Solutech;
 using ecommerce_Solutech.Data;
 
 #nullable disable
@@ -12,8 +11,8 @@ using ecommerce_Solutech.Data;
 namespace ecommerce_Solutech.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230920182751_v7")]
-    partial class v7
+    [Migration("20230920184149_v7.2")]
+    partial class v72
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
