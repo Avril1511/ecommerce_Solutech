@@ -7,7 +7,7 @@ namespace ecommerce_Solutech.Models{
     public class Cliente{
         [Key]
         public int? Id { get; set; }
-        public int IdEndereco { get; set; }
+        public int? IdEndereco { get; set; }
         public string Nome { get; set; }
         public string email { get; set; }
         public string telefone { get; set;}

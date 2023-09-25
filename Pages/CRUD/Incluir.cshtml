@@ -1,0 +1,25 @@
+﻿@page
+@model ecommerce_Solutech.Pages.CRUD.IncluirModel
+@{
+}
+<form method="post">
+	Nome:
+	<input class="form-control" asp-for="cliente.Nome"/>
+	<br />
+	Email:
+	<input class="form-control" asp-for="cliente.email" />
+	<br />
+	Telefone:
+	<input class ="form-control" asp-for="cliente.telefone" />
+	<br />
+	login:
+	<input class="form-control" asp-for="cliente.login" />
+	<br />
+	Senha:
+	<input class="form-control" asp-for="cliente.HashSenha" />
+	<br />
+	<br />
+	<br />
+	<input type="submit" value="Enviar"/>
+
+</form>

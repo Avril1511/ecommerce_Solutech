@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ecommerce_Solutech;
+using ecommerce_Solutech.Data;
 
 #nullable disable
 
@@ -29,7 +29,7 @@ namespace ecommerce_Solutech.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("IdEndereco")
+                    b.Property<int?>("IdEndereco")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -180,9 +180,7 @@ namespace ecommerce_Solutech.Migrations
                 {
                     b.HasOne("ecommerce_Solutech.Models.Endereco", "Endereco")
                         .WithMany()
-                        .HasForeignKey("IdEndereco")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdEndereco");
 
                     b.Navigation("Endereco");
                 });

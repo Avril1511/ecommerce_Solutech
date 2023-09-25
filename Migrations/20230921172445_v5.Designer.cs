@@ -11,8 +11,8 @@ using ecommerce_Solutech.Data;
 namespace ecommerce_Solutech.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230920182751_v7")]
-    partial class v7
+    [Migration("20230921172445_v5")]
+    partial class v5
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace ecommerce_Solutech.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("IdEndereco")
+                    b.Property<int?>("IdEndereco")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -183,9 +183,7 @@ namespace ecommerce_Solutech.Migrations
                 {
                     b.HasOne("ecommerce_Solutech.Models.Endereco", "Endereco")
                         .WithMany()
-                        .HasForeignKey("IdEndereco")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdEndereco");
 
                     b.Navigation("Endereco");
                 });

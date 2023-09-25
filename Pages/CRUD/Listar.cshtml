@@ -1,0 +1,46 @@
+﻿@page
+@model ecommerce_Solutech.Pages.CRUD.ListarModel
+@{
+}
+<a class="btn btn-outline-success" asp-page="./Incluir">
+	Incluir<
+</a>
+<table class=" table"> 
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nome</td>
+			<td>Telefone</td>
+			<td>Email</td>
+			<td>Login</td>
+			<td>Ações</td>
+
+		</tr>
+	</thead>
+	<tbody>@foreach(var cliente in Model.Clientes){
+		<tr>
+			<td>@cliente.Id</td>
+			<td>@cliente.Nome</td>
+			<td>@cliente.telefone</td>
+			<td>@cliente.email</td>
+			<td>@cliente.login</td>
+			<td>
+				<a 
+					asp-page="./Alterar"
+				    asp-route-id="@cliente.Id"
+					   class="btn btn-outline-success">
+					Editar
+				</a>
+
+				<form
+					method="post"
+					asp-page-handler="delete"
+					asp-route-id="@cliente.Id"
+				>
+						<button class="btn btn-outline-danger">Excluir</button>
+
+				</form>
+	 		</td>
+		</tr>
+	}</tbody>
+</table>
