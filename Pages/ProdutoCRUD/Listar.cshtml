@@ -1,0 +1,42 @@
+﻿@page
+@model ecommerce_Solutech.Pages.ProdutoCRUD.ListarProduto
+<a class="btn btn-outline-success" asp-page="./Incluir">
+	Incluir<
+</a>
+<table class=" table">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nome</td>
+			<td>Estoque</td>
+			<td>Preco</td>
+			<td>VencimentoProduto</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var Produto in Model.Produtos)
+		{
+			<tr>
+				<td>@Produto.Id</td>
+				<td>@Produto.Nome</td>
+				<td>@Produto.Estoque</td>
+				<td>@Produto.Preco</td>
+				<td>@Produto.VencimentoProduto</td>
+				<td>
+					<a asp-page="./Alterar"
+					   asp-route-id="@Produto.Id"
+					   class="btn btn-outline-success">
+						Editar
+					</a>
+
+					<form method="post"
+						  asp-page-handler="delete"
+						  asp-route-id="@Produto.Id">
+						<button class="btn btn-outline-danger">Excluir</button>
+
+					</form>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
