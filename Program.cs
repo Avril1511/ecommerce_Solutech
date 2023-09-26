@@ -33,7 +33,7 @@ namespace ecommerce_Solutech {
 
             app.MapRazorPages();
 
-            app.Run();
-        }
+			app.Run();
+		}
     }
 }
