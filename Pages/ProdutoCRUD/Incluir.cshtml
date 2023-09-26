@@ -1,0 +1,21 @@
+﻿@page
+@model ecommerce_Solutech.Pages.ProdutoCRUD.IncluirModel
+@{
+}
+<form method="post">
+	Nome:
+	<input class="form-control" asp-for="produto.Nome" />
+	<br />
+	Estoque:
+	<input class="form-control" asp-for="produto.Estoque" />
+	<br />
+	Preco:
+	<input class="form-control" asp-for="produto.Preco" />
+	<br />
+	VencimentoProduto:
+	<input class="form-control" asp-for="produto.VencimentoProduto" />
+	<br />
+	<br />
+	<input type="submit" value="Enviar" />
+
+</form>
