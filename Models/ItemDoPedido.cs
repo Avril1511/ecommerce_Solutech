@@ -8,8 +8,13 @@ namespace ecommerce_Solutech.Models
         [Key]
         public int IdPedido { get; set; }
         public int IdProduto { get; set; }
-        public int quantidade { get; set;}
+
+        [Required(ErrorMessage = "O campo {0} é que preenchimento obrigatório")] 
+        public int quantidadepedido { get; set;}
         public double valor { get; set;}
+		[Required(ErrorMessage = "O campo {0} é que preenchimento obrigatório")]
+
+
         [ForeignKey("IdPedido")]
         public Pedido pedido { get; set;}
 
