@@ -5,12 +5,20 @@ namespace ecommerce_Solutech.Models {
     public class Produto {
         [Key]
         public int? Id { get; set; }
-		[MaxLength(100, ErrorMessage = "O campo {Nome} Deve ter no Máximo {1}")]
-		[MinLength(50, ErrorMessage = "O campo {Nome} Deve ter no Mínimo {1} caracteres.")]
+		[MaxLength(100, ErrorMessage = "O campo {0} Deve ter no Máximo {1}")]
+		[MinLength(50, ErrorMessage = "O campo {0} Deve ter no Mínimo {1} caracteres.")]
+        [Required(ErrorMessage = " O campo {0} é de preenchimento obrigatório")]
 		public string Nome { get; set; }
-        public float Estoque { get; set; }
-        public double Preco { get; set; }
-		[DataType(DataType.Date, ErrorMessage = "O campo {Vencimento do Produto} deve ter uma data válida")]
+		
+        [Required(ErrorMessage = " O campo {0} é de preenchimento obrigatório")]
+		public float Estoque { get; set; }
+		
+        [Required(ErrorMessage = " O campo {0} é de preenchimento obrigatório")]
+
+		public double Preco { get; set; }
+		
+        [Required(ErrorMessage = " O campo {0} é de preenchimento obrigatório")]
+		[DataType(DataType.Date, ErrorMessage = "O campo {0} deve ter uma data válida")]
 		public DateTime VencimentoProduto { get; set; }
         public ICollection<ItemDoPedido> ItemDoPedidos { get; set; }
     }
