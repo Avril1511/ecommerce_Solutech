@@ -14,7 +14,7 @@ namespace ecommerce_Solutech.Models {
 		public float Estoque { get; set; }
 		
         [Required(ErrorMessage = " O campo {0} é de preenchimento obrigatório")]
-
+		[Display(Name = "Preço")]
 		public double Preco { get; set; }
 		
         [Required(ErrorMessage = " O campo {0} é de preenchimento obrigatório")]
