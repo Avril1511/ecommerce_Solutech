@@ -7,7 +7,7 @@ namespace ecommerce_Solutech.Models {
         public int Id { get; set; }
 
 
-		[RegularExpression(@"[0-9]{8}", ErrorMessage = "O campo {Endereço} deve ser preenchido com 8 digitos numéricos")]
+		[RegularExpression(@"[0-9]{8}", ErrorMessage = "O campo {0} deve ser preenchido com 8 digitos numéricos")]
 		public string Cep { get; set; }
 
 		[Required(ErrorMessage = "O campo {0} é de preenchimento obrigatório.")]
