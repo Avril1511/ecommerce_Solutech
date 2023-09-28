@@ -18,6 +18,14 @@ namespace ecommerce_Solutech.Pages.ProdutoCRUD {
 		public void OnGet() {
 		}
 		public async Task<IActionResult> OnPostAsync() {
+			var produto = new Produto();
+
+			await TryUpdateModelAsync<Produto>(
+					produto,
+					"produto",
+					o => o.Nome, o => o.Preco, o => o.Estoque,o => o. VencimentoProduto
+					);
+
 			_context.produtos.Add(produto);
 
 			await _context.SaveChangesAsync();
