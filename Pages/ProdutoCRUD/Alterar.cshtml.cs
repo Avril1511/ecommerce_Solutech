@@ -20,16 +20,38 @@ namespace ecommerce_Solutech.Pages.CRUD.ProdutoCRUD
         public Produto produto { get; set; }
 
         public async Task<IActionResult> OnGet(int id) {
+            if ( id == null) {
+                return NotFound();
+            }
+
             produto = await _context.produtos.FirstOrDefaultAsync(c => c.Id == id);
+
+            if ( produto == null ) {
+                return NotFound();
+
+            }
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync() {
+            if (!ModelState.IsValid) {
+                return Page();
+            }
             _context.Attach(produto).State = EntityState.Modified;
-            await _context .SaveChangesAsync();
-           
-            return Page();
+
+            try {
+                await _context.SaveChangesAsync();
+            } catch (DbUpdateConcurrencyException error) {
+                if (!ProdutoAindaNãoExiste(Produto.Id)) {
+                    return NotFound();
+                } else {
+                    throw;
+                }
+
+            } catch {
+                return Page();
         }
-    }
-}
+            return RedirectToPage("./Listar");
+        }
+
