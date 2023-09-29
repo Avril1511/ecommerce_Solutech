@@ -6,19 +6,42 @@
 	Incluir Produto
 </h5>
 <form method="post">
-	Nome:
-	<input class="form-control" asp-for="produto.Nome" />
+	<!--CRIA UMA LINHA PARA SER RENDERIZADA-->
+	<div class="row"/>
+	<!--CRIA UMA COLUNA QUE IRÁ OCUPAR 4/12 DO TAMANHO DA TELA-->
+	<div class="col-4">
+		<label asp-for="produto.Nome">Nome:</label>
+		<input asp-for="produto.Nome" class="form--control"/>
+		<span asp-validation-for="produto.Nome" class="text-danger"></span>
+	</div>
 	<br />
-	Estoque:
-	<input class="form-control" asp-for="produto.Estoque" />
-	<br />
+	<div class="col-3">
+		<label asp-for="produto.Preco">Preço:</label>
+		<input asp-for="produto.Preco" class="form--control" />
+		<span asp-validation-for="produto.Preco" class="text-danger"></span>
+	</div>
+	
+	<div class="col-6">
+		<label asp-for="produto.Estoque">Estoque:</label>
+		<input class="form-control" asp-for="produto.Estoque" />
+		<span asp-validation-for="produto.Estoque" class="text-danger"></span>
+		<br />
+	</div>
 	Preco:
-	<input class="form-control" asp-for="produto.Preco" />
-	<br />
+	<div class="col-6">
+		<label asp-for="produto.Preco">Preço:</label>
+		<input class="form-control" asp-for="produto.Preco" />
+		<span asp-validation-for="produto.Preço" class="text-danger"></span>
+		<br />
+	</div>
 	VencimentoProduto:
-	<input class="form-control" asp-for="produto.VencimentoProduto" />
+	<div class="col-7">
+		<label asp-for="produto.Vencimento">Vencimento do Produto:</label>
+		<input class="form-control" asp-for="produto.VencimentoProduto" />
+		<span asp-validation-for="produto.VencimentoProduto" class="text-danger"></span>
+		<br />
 	<br />
-	<br />
+	</div>
 	<input type="submit" value="Enviar" />
 
 </form>
