@@ -13,7 +13,7 @@ namespace ecommerce_Solutech.Models{
 		public int? IdEndereco { get; set; }
 
 
-		[Required(ErrorMessage = "0 campos {0} é de preenchimento obrigatório")]
+		[Required(ErrorMessage = "0 campo \"{0}\" é de preenchimento obrigatório")]
 		public string Nome { get; set; }
 
 
@@ -39,13 +39,18 @@ namespace ecommerce_Solutech.Models{
 		[DisplayName("Login")]
         public string login { get; set;}
 
+		[MinLength(8, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
+		[DisplayName("HasSenha")]
+
 		[Required(ErrorMessage = "0 campo \"{0}\" é de preenchimento obrigatório")]
 		[MinLength(8, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
 		[DisplayName("Senha")]
+
 		public string HashSenha { get; set;}
 
 
         public Endereco? Endereco { get; set; }
+
         public ICollection<Pedido>? Pedidos { get; set; }
 
     }
