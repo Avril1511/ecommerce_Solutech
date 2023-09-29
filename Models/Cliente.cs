@@ -30,7 +30,7 @@ namespace ecommerce_Solutech.Models{
 		
 		[MinLength(11, ErrorMessage = "O campo \"{0}\" deve conter no máximo {1} caracteres.")]
         [DisplayName("Telefone")]
-
+		[Required(ErrorMessage = "0 campo \"{0}\" é de preenchimento obrigatório")]
 		public string telefone { get; set;}
 
 
@@ -41,6 +41,11 @@ namespace ecommerce_Solutech.Models{
 
 		[MinLength(8, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
 		[DisplayName("HasSenha")]
+
+		[Required(ErrorMessage = "0 campo \"{0}\" é de preenchimento obrigatório")]
+		[MinLength(8, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
+		[DisplayName("Senha")]
+
 		public string HashSenha { get; set;}
 
 
