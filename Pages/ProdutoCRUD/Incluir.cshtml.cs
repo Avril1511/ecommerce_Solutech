@@ -1,3 +1,4 @@
+using CodigoApoio;
 using ecommerce_Solutech.Data;
 using ecommerce_Solutech.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,14 +12,8 @@ namespace ecommerce_Solutech.Pages.ProdutoCRUD {
 	{
 		private readonly AppDbContext _context;
 
-		public IncluirModel(AppDbContext context) {
-			_context = context;
-		}
-
 		[BindProperty]
 		public Produto produto { get; set; }
-
-
 
 		private readonly IWebHostEnvironment _webHostEnvironment;
 
@@ -33,7 +28,7 @@ namespace ecommerce_Solutech.Pages.ProdutoCRUD {
 		public IncluirModel(AppDbContext context, IWebHostEnvironment whe)
 		{
 			_context = context;
-			_webHostEnvironment = whe;
+			_webHostEnvironment = whe;    
 			CaminhoImagem = "/img/produto/sem_imagem.jpg";
 
 		}
@@ -41,7 +36,19 @@ namespace ecommerce_Solutech.Pages.ProdutoCRUD {
 		public void OnGet() {
 		}
 		public async Task<IActionResult> OnPostAsync() {
+			if (ImagemProduto == null){
+				return Page();
+			}
 			var produto = new Produto();
+
+			if ( await TryUpdateModelAsync(
+				produto,
+				produto.GetType(),
+				nameof(Produto)
+				)){ 
+
+				_context.produtos.Add( produto );await _context.SaveChangesAsync();await AppUtils.ProcessarArquivoDeImagem(produto.Id, ImagemProduto, _webHostEnvironment);
+			}
 
 			bool formValidado = await TryUpdateModelAsync<Produto>(
 									produto,
