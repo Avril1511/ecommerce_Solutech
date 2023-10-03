@@ -5,38 +5,43 @@
 <h5>
 	Incluir Produto
 </h5>
-<form method="post">
+<form method="post" class="mt-3" enctype="multipart/form-data">
 	<!--CRIA UMA LINHA PARA SER RENDERIZADA-->
-	<div class="row"/>
-	<!--CRIA UMA COLUNA QUE IRÁ OCUPAR 4/12 DO TAMANHO DA TELA-->
-	<div class="col-4">
-		<label asp-for="produto.Nome">Nome:</label>
-		<input asp-for="produto.Nome" class="form--control"/>
-		<span asp-validation-for="produto.Nome" class="text-danger"></span>
+	<div class="row">
+		<!--CRIA UMA COLUNA QUE IRÁ OCUPAR 4/12 DO TAMANHO DA TELA-->
+		<div class="col-6">
+			<label asp-for="produto.Nome">Nome:</label>
+			<input asp-for="produto.Nome" class="form-control"/>
+			<span asp-validation-for="produto.Nome" class="text-danger"></span>
+		</div>
 	</div>
 	<br />
+	<div class=" row ">
+
+		<div class="col-4">
+			<label asp-for="produto.Estoque">Estoque:</label>
+			<input class="form-control" asp-for="produto.Estoque" />
+			<span asp-validation-for="produto.Estoque" class="text-danger"></span>
+			<br />
+		</div>
+		<div class="col-4">
+			<label asp-for="produto.Preco">Preço:</label>
+			<input class="form-control" asp-for="produto.Preco" />
+			<span asp-validation-for="produto.Preco" class="text-danger"></span>
+			<br />
+		</div>
+	</div>
+
 	<div class="col-3">
-		<label asp-for="produto.Preco">Preço:</label>
-		<input asp-for="produto.Preco" class="form--control" />
-		<span asp-validation-for="produto.Preco" class="text-danger"></span>
+			<label asp-for="ImagemProduto"class="control-label"></label>
+			<input asp-for="ImagemProduto"class="custom-file-input"accept="image/*"/>
+			<span asp-validation-for="ImagemProduto" class="text-danger"></span>
+			<img src="@Model.CaminhoImagem"class="image-thumbnail" asp-append-version="true"/>
+			<br />
 	</div>
-	
-	<div class="col-6">
-		<label asp-for="produto.Estoque">Estoque:</label>
-		<input class="form-control" asp-for="produto.Estoque" />
-		<span asp-validation-for="produto.Estoque" class="text-danger"></span>
-		<br />
-	</div>
-	Preco:
-	<div class="col-6">
-		<label asp-for="produto.Preco">Preço:</label>
-		<input class="form-control" asp-for="produto.Preco" />
-		<span asp-validation-for="produto.Preço" class="text-danger"></span>
-		<br />
-	</div>
-	VencimentoProduto:
+
 	<div class="col-7">
-		<label asp-for="produto.Vencimento">Vencimento do Produto:</label>
+		<label asp-for="produto.VencimentoProduto">Vencimento do Produto:</label>
 		<input class="form-control" asp-for="produto.VencimentoProduto" />
 		<span asp-validation-for="produto.VencimentoProduto" class="text-danger"></span>
 		<br />
