@@ -40,27 +40,23 @@ namespace ecommerce_Solutech.Pages.ProdutoCRUD {
 			}
 			var produto = new Produto();
 
-			if ( await TryUpdateModelAsync(
-				produto,
-				produto.GetType(),
-				nameof(Produto)
-				)){ 
 
-				_context.produtos.Add( produto );await _context.SaveChangesAsync();await AppUtils.ProcessarArquivoDeImagem(produto.Id, ImagemProduto, _webHostEnvironment);
-			}
+			bool formValidado = await TryUpdateModelAsync(
+												produto,
+												produto.GetType(),
+												nameof(Produto)
+											);
 
-			bool formValidado = await TryUpdateModelAsync<Produto>(
-									produto,
-									"produto",
-									o => o.Nome, o => o.Preco, o => o.Estoque,o => o. VencimentoProduto
-								);
+			if (formValidado) { 
 
-			if ( formValidado) { 
-				_context.produtos.Add(produto);
+				_context.produtos.Add( produto );
 				await _context.SaveChangesAsync();
 
+				await AppUtils.ProcessarArquivoDeImagem(produto.Id, ImagemProduto, _webHostEnvironment);
+				
 				return RedirectToPage("./Listar");
 			}
+
 
 			return Page();
 			

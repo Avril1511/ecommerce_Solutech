@@ -23,6 +23,7 @@ namespace ecommerce_Solutech.Pages.CRUD.ProdutoCRUD {
 
         public AlterarModel(AppDbContext context, IWebHostEnvironment webHostEnvironment) {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> OnGet(int id) {

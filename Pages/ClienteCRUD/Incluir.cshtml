@@ -2,32 +2,36 @@
 @model ecommerce_Solutech.Pages.CRUD.IncluirModel
 @{
 }
+<h5>
+	Incluir Novo Cliente
+</h5>
+
 <!--CRIA UMA LINHA PARA SER RENDERIZADA-->
 <form method="post">
 <!--CRIA UMA COLUNA QUE IRÁ OCUPAR 4/12 DO TAMANHO DA TELA-->
 	<div class="row">
-		<div class="col-4"> 
+		<div class="col-5"> 
 			<label asp-for="cliente.Nome">Nome:</label>
 			<input asp-for="cliente.Nome" class="form-control" />
 			<span asp-validation-for="cliente.Nome" class="text-danger"></span>
 		</div>
 	</div>
-	<div>
+	<div class="col-5">
 		<label asp-for="cliente.email">Email:</label>
 		<input asp-for="cliente.email" class="form-control" />
 		<span asp-validation-for="cliente.email" class="text-danger"></span>
 	</div>
-	<div>
+	<div class="col-5">
 		<label asp-for="cliente.telefone">Telefone:</label>
 		<input asp-for="cliente.telefone" class="form-control" />
 		<span asp-validation-for="cliente.telefone" class="text-danger"></span>
 	</div>
-	<div>
+	<div class ="col-5">
 		<label asp-for="cliente.login">Login:</label>
 		<input asp-for="cliente.login" class="form-control" />
 		<span asp-validation-for="cliente.login" class="text-danger"></span>
 	</div>
-	<div>
+	<div class ="col-5">	
 		<label asp-for="cliente.HashSenha">Senha:</label>
 		<input asp-for="cliente.HashSenha" class="form-control" />
 		<span asp-validation-for="cliente.HashSenha" class="text-danger"></span>
