@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using SixLabors.ImageSharp.Formats.Jpeg;
 
 namespace CodigoApoio{
-    public static class AppUtils
-    {
+    public static class AppUtils{
         public static async Task ProcessarArquivoDeImagem(int idProduto, IFormFile imagemProduto, IWebHostEnvironment whe)
         {
             //copia a imagem para um stream em memória

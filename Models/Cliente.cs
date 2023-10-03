@@ -39,8 +39,6 @@ namespace ecommerce_Solutech.Models{
 		[DisplayName("Login")]
         public string login { get; set;}
 
-		[MinLength(8, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
-		[DisplayName("HasSenha")]
 
 		[Required(ErrorMessage = "0 campo \"{0}\" é de preenchimento obrigatório")]
 		[MinLength(8, ErrorMessage = "O campo {0} deve ter no mínimo {1} caracteres.")]
