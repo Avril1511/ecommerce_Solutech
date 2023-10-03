@@ -2,23 +2,28 @@
 @model ecommerce_Solutech.Pages.CRUD.ProdutoCRUD.AlterarModel
 @{
 }
-<form method="post">
-
+<form 
+	  method="post"
+	  class="mt-3"
+	  Enctype="multipart/form-data"
+>
 	<input asp-for="produto.Id" type="hidden" />
-	Nome:
+
+	<label asp-for="produto.Nome" class="control-label">Nome:</label>
 	<input class="form-control" asp-for="produto.Nome" />
-	<br />
-	Estoque:
+	<span asp-validation-for="produto.Nome" class="text-danger"></span>
+	<br /> 
+	<label asp-for="produto.Estoque" class="control-label">Estoque:</label>
 	<input class="form-control" asp-for="produto.Estoque" />
+	<span asp-validation-for="produto.Estoque" class="text-danger"></span>
+	<br /> 
+	<label asp-for="produto.Preco" class="control-label">Preco:</label>
+	<input class="form-control" asp-for="produto.Nome" />
+	<span asp-validation-for="produto.Nome" class="text-danger"></span>
 	<br />
-	Preco:
-	<input class="form-control" asp-for="produto.Preco" />
-	<br />
-	Vencimento do Produto:
-	<input class="form-control" asp-for="produto.VencimentoProduto" />
-	<br />
-	Item Do Pedidos:
-	<input class="form-control" asp-for="produto.ItemDoPedidos" />
+	<label asp-for="produto.ItemDoPedidos" class="control-label">Item Do Pedidos:</label>
+	<input class="form-control" asp-for="produto.Estoque" />
+	<span asp-validation-for="produto.Estoque" class="text-danger"></span>
 	<br />
 	<br />
 	<br />
