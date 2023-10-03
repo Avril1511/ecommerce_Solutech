@@ -9,7 +9,7 @@ namespace ecommerce_Solutech.Pages.CRUD
     {
         private readonly AppDbContext _context;
 
-		public IncluirModel (AppDbContext context) {
+		public IncluirModel (AppDbContext context){
             _context = context;
         }
 
@@ -20,13 +20,26 @@ namespace ecommerce_Solutech.Pages.CRUD
         {
         }
         public async Task<IActionResult> OnPostAsync() {
+            var cliente = new Cliente();
             _context.cliente.Add(cliente);
 
-            await _context.SaveChangesAsync();
+            bool validado = await TryUpdateModelAsync<Cliente>(
+                                cliente,
+                                "cliente",
+								o => o.Nome, o => o.email, o => o.DataNascimento, o => o.telefone, o => o.login, o => o.HashSenha
+				);
 
-            return RedirectToPage("./Listar");
 
+            if (validado)
+            {
+                _context.cliente.Add(cliente);
+                await _context.SaveChangesAsync();
 
+                return RedirectToPage("./Listar");
+            } else
+            {
+                return Page();
+            }
 
         }
     }

@@ -21,15 +21,22 @@ namespace ecommerce_Solutech.Pages.CRUD
             return Page();       
         }
         public async Task<IActionResult> OnPostDeleteAsync(int? id) {
+            if (id == null) {
+                return NotFound();
+            }
 
             var cliente = await _context.cliente.FirstOrDefaultAsync( c => c.Id == id );
-            //Verificar se foi retornado algum cliente de banco de dados
-            if (cliente != null) {
+			//Verificar se foi retornado algum cliente de banco de dados
+
+			if (cliente != null) {
                 _context.cliente.Remove(cliente);
                 await _context.SaveChangesAsync();
-            }
+
             //Redireciona para a página de listagem de Cliente
-            return RedirectToPage("./Listar");
+                return RedirectToPage("./Listar");
+            } else {
+				return NotFound();
+			}
         }
 
     }
