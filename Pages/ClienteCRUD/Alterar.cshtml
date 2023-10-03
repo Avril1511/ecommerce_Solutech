@@ -2,26 +2,43 @@
 @model ecommerce_Solutech.Pages.CRUD.AlterarModel
 @{
 }
-
+<h4>
+	Alterar Dados do Cliente
+</h4>
 <form method="post">
-	
 	<input asp-for="cliente.Id" type="hidden" />
-	Nome:
-	<input class="form-control" asp-for="cliente.Nome" />
-	<br />
-	Email:
-	<input class="form-control" asp-for="cliente.email" />
-	<br />
-	Telefone:
-	<input class="form-control" asp-for="cliente.telefone" />
-	<br />
-	login:
-	<input class="form-control" asp-for="cliente.login" />
-	<br />
-	Senha:
-	<input class="form-control" asp-for="cliente.HashSenha" />
-	<br />
-	<br />
+
+		<div class="col-5">
+			 <label asp-for="cliente.Nome"> Nome:</label>
+			 <input class="form-control" asp-for="cliente.Nome" />
+			 <span asp-validation-for="cliente.Nome" class="text-danger"></span>
+		</div>
+
+		<div class="col-5">
+			 <label asp-for="cliente.email"> Email:</label>
+			<input class="form-control" asp-for="cliente.email" />
+			<span asp-validation-for="cliente.email" class="text-danger"></span>
+		</div>
+	    <div class="col-5">
+			<label asp-for="cliente.DataNascimento"> Data de Nascimento:</label>
+			<input class="form-control" asp-for="cliente.DataNascimento" />
+			<span asp-validation-for="cliente.DataNascimento" class="text-danger"></span>
+	    </div>
+		<div class="col-5">
+			<label asp-for="cliente.telefone"> Telefone:</label>
+			<input class="form-control" asp-for="cliente.telefone" />
+			<span asp-validation-for="cliente.telefone" class="text-danger"></span>
+		</div>
+		<div class="col-5">
+			<label asp-for="cliente.login"> Login:</label>
+			<input class="form-control" asp-for="cliente.login" />
+			<span asp-validation-for="cliente.login" class="text-danger"></span>
+	    </div>
+	    <div class="col-5">
+			<label asp-for="cliente.HashSenha"> Senha:</label>
+			<input class="form-control" asp-for="cliente.HashSenha" />
+			<span asp-validation-for="cliente.HashSenha" class="text-danger"></span>
+	    </div>
 	<br />
 	<input type="submit" value="Enviar" />
 

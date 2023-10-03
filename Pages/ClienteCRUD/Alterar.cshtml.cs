@@ -21,16 +21,49 @@ namespace ecommerce_Solutech.Pages.CRUD
         public Cliente cliente { get; set; }
 
 
-		public async Task<IActionResult> OnGet(int id){ 
+		public async Task<IActionResult> OnGet(int? id){ 
+			if(id == null) {
+
+				return NotFound();
+			}
 			cliente = await _context.cliente.FirstOrDefaultAsync(c => c.Id == id);
+
+			if (id == null) {
+
+				return NotFound();
+			}
 
 			return Page();
         }
 		public async Task<IActionResult> OnPostAsync() {
-			 _context.Attach(cliente).State = EntityState.Modified; 
-			 await _context.SaveChangesAsync();
+			if (!ModelState.IsValid) {
 
-			return Page();
+				return Page();
+			}
+
+			 _context.Attach(cliente).State = EntityState.Modified;
+
+			try {
+				await _context.SaveChangesAsync();
+			} catch (DbUpdateConcurrencyException error) {
+				if (!ClienteAindaExiste(cliente.Id)) {
+
+					return NotFound();
+
+				} else {
+					throw;
+				}
+
+			} catch {
+				return Page();
+			}
+
+			return RedirectToPage("./Listar");
 		}
-    }
+
+		private bool ClienteAindaExiste(int? id) {
+			return _context.cliente.Any( c => c.Id == id);
+			
+		}
+	}
 }
