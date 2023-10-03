@@ -30,15 +30,15 @@
 			<span asp-validation-for="produto.Preco" class="text-danger"></span>
 			<br />
 		</div>
-	</divclass>
+	</div>
 
-			</div clas="col-6">
+	<div class="col-3">
 			<label asp-for="ImagemProduto"class="control-label"></label>
 			<input asp-for="ImagemProduto"class="custom-file-input"accept="image/*"/>
 			<span asp-validation-for="ImagemProduto" class="text-danger"></span>
 			<img src="@Model.CaminhoImagem"class="image-thumbnail" asp-append-version="true"/>
 			<br />
-		</div>
+	</div>
 
 	<div class="col-7">
 		<label asp-for="produto.VencimentoProduto">Vencimento do Produto:</label>
