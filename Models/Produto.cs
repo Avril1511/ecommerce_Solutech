@@ -6,7 +6,7 @@ namespace ecommerce_Solutech.Models {
         [Key]
         public int Id { get; set; }
 		[MaxLength(100, ErrorMessage = "O campo {0} Deve ter no Máximo {1}")]
-		[MinLength(15, ErrorMessage = "O campo {0} Deve ter no Mínimo {1} caracteres.")]
+		[MinLength(10, ErrorMessage = "O campo {0} Deve ter no Mínimo {1} caracteres.")]
         [Required(ErrorMessage = " O campo {0} é de preenchimento obrigatório")]
 		public string Nome { get; set; }
 		

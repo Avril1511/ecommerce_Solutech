@@ -9,12 +9,10 @@
 <!--CRIA UMA LINHA PARA SER RENDERIZADA-->
 <form method="post">
 <!--CRIA UMA COLUNA QUE IRÁ OCUPAR 4/12 DO TAMANHO DA TELA-->
-	<div class="row">
-		<div class="col-5"> 
-			<label asp-for="cliente.Nome">Nome:</label>
-			<input asp-for="cliente.Nome" class="form-control" />
-			<span asp-validation-for="cliente.Nome" class="text-danger"></span>
-		</div>
+	<div class="col-5"> 
+		<label asp-for="cliente.Nome">Nome:</label>
+		<input asp-for="cliente.Nome" class="form-control" />
+		<span asp-validation-for="cliente.Nome" class="text-danger"></span>
 	</div>
 	<div class="col-5">
 		<label asp-for="cliente.email">Email:</label>

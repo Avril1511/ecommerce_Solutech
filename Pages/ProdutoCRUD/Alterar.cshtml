@@ -23,19 +23,19 @@
 	    </div>
 		<div class="col-5">
 			<label asp-for="produto.Preco" class="control-label">Preco:</label>
-			<input class="form-control" asp-for="produto.Nome" />
+			<input class="form-control" asp-for="produto.Preco" />
 			<span asp-validation-for="produto.Nome" class="text-danger"></span>
-	    </div>
-		<div class="col-5">
-			<label asp-for="produto.ItemDoPedidos" class="control-label">Item Do Pedidos:</label>
-			<input class="form-control" asp-for="produto.Estoque" />
-			<span asp-validation-for="produto.Estoque" class="text-danger"></span>
 	    </div>
 		<div class="col-5">
 			<label asp-for="ImagemProduto" class="control-label">Imagem do Produto:</label>
 			<input class="form-control" asp-for="ImagemProduto" />
 			<span asp-validation-for="ImagemProduto" class="text-danger"></span>
 	    </div>
+	   <div class="col-5">
+			<label asp-for="produto.VencimentoProduto">Vencimento do Produto:</label>
+			<input class="form-control" asp-for="produto.VencimentoProduto" />
+			<span asp-validation-for="produto.VencimentoProduto" class="text-danger"></span>
+		   </div>
 	<br />
 	<input type="submit" value="Enviar" />
 
