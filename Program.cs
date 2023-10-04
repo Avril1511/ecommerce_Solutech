@@ -6,35 +6,18 @@ namespace ecommerce_Solutech {
         public static void Main(string[] args) {
             var builder = WebApplication.CreateBuilder(args);
 
-            var _mySqlServerVersion = new MySqlServerVersion(new Version(8, 0, 33));
-
-            builder.Services.AddDbContext<AppDbContext>(
-                options => {
-                    options.UseMySql(
-                       builder.Configuration.GetConnectionString("DBString"),
-                        _mySqlServerVersion,
-                        opt => opt.EnableRetryOnFailure()
-					   );
-
-				}
-             );
-            builder.Services.AddRazorPages();
+            var startup = new Startup(builder.Configuration);
+            startup.ConfigureServices(builder.Services);
 
             var app = builder.Build();
 
+            startup.Configure(app, builder.Environment);
+
+
+
+
             // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment()) {
-                app.UseDeveloperExceptionPage();
-            }
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MapRazorPages();
-
-			app.Run();
+          
 		}
     }
 }

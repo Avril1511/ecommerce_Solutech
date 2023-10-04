@@ -2,10 +2,11 @@
 ﻿using ecommerce_Solutech.Pages;
 ﻿using ecommerce_Solutech.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ecommerce_Solutech.Data
     {
-    public class AppDbContext : DbContext {
+    public class AppDbContext : IdentityDbContext<AppUser> {
         public AppDbContext(DbContextOptions options) : base(options) {
         }
 
