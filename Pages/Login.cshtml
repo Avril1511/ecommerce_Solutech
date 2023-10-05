@@ -1,0 +1,23 @@
+﻿@page
+@model ecommerce_Solutech.Pages.LoginModel
+@{
+}
+<form method="post">
+	<div> asp-validation-sumary="ModelOnly"
+	</div>
+        <label asp-for="Dados.email">Email:</label>
+        <input asp-for="Dados.Email"/>
+        <span asp-validation-for="Dados.Email class="text-danger><</span>
+
+		<label asp-for="Dados.senha">Senha:</label>
+		<input asp-for="Dados.senha" />
+		<span asp-validation-for="Dados.senha class=" text-danger><</span>
+
+		<input type="hidden" name="returnUrl" value="@Model.ReturnURL"/>
+
+		<label asp-for="Dados.Lembrar">
+			<input asp-for="Dados.Lembrar" />
+			Lembrar de mim 
+		</label>
+	
+</form>
