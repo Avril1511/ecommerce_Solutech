@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://192.168.30.170:80".
+      "applicationUrl": "http://192.168.30.144:80",
       "sslPort": 0
     }
   },
@@ -14,7 +14,7 @@
       "launchBrowser": true,
 
 
-      "applicationUrl": "http://192.168.30.170:80".
+      "applicationUrl": "http://192.168.30.144:80",
 
 
       "environmentVariables": {

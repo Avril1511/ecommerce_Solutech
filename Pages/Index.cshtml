@@ -9,6 +9,18 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+        <form class="form-inline my-2 my-lg-" action="/Index" method="get">
+            
+            <input type="hidden" name="o" value="0" icon="o" />
+            <input type="hidden" name="p" value="" icon="p" />
+            <input type="text"
+                   name="q"
+                   placeholder="Nome do produto a buscar..."
+                   class="form-control mr-sm-2" />
+            <button class="btn btn-secondary my-sm-2" />
+        </form> 
+       
+
 <div class="row">
       @foreach(var produto in Model.Produtos){
     <div class="col-3">
@@ -19,10 +31,23 @@
             <div class="card-body">
                  <h5 class="card-title">@produto.Nome</h5>
                  <p class="card-text">R$ @produto.Preco.ToString("F2")</p>
-                 <a href="#" class="btn btn-primary">Adicionar para o Carrinho</a>
+                 <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
             </div>    
        </div>
 
     </div>
       }
 </div>
+        <div class="container text-center"
+            <nav aria-label="Page navigation example"
+                <ul class="pagination"> @for(int i = 1;i<=Model.QuantidadePagina;i++) {
+                @if (i == Model.QuantidadePagina)
+                {
+                    <li class="page-item disabled"><a class="page-link" href="#">@i</a></li>
+                } else{
+                    <li class="page-item"><a class="page-link" href="#">@i</a></li>
+
+                }
+                }</ul>
+            </nav>
+        </div>
