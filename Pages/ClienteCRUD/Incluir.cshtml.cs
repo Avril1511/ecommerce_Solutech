@@ -26,7 +26,7 @@ namespace ecommerce_Solutech.Pages.CRUD
             bool validado = await TryUpdateModelAsync<Cliente>(
                                 cliente,
                                 "cliente",
-								o => o.Nome, o => o.email, o => o.DataNascimento, o => o.telefone, o => o.login, o => o.HashSenha
+								o => o.Nome, o => o.email, o => o.DataNascimento, o => o.telefone, o => o.Cpf
 				);
 
 

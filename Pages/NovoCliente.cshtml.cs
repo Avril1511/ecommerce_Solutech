@@ -11,11 +11,11 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.Encodings.Web;
 
-namespace PageEstudo.Pages {
+namespace ecommerce_Solutech.Pages {
     public class NovoClienteModel : PageModel {
         public class Senhas {
             [Required(ErrorMessage = "O campo {0} é de preenchimento obrigatório.")]
-            [StringLength(16, ErrorMessage = "O campo \"{0}\" deve ter pelo menos {2} e no máximo {1} caracteres", MinimumLength = 6)]
+            [StringLength(16, ErrorMessage = "O campo \"{0}\" deve ter pelo menos {2} e no máximo {1} caracteres", MinimumLength = 5)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
             public string Senha { get; set; }

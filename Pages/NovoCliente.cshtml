@@ -2,3 +2,88 @@
 @model ecommerce_Solutech.Pages.NovoClienteModel
 @{
 }
+<h5>
+	Cadastrar Novo Cliente
+</h5>
+<form method="post">
+	<div class="row">
+		<div asp-validation-summary="ModelOnly"></div>
+		<div class="col-5">
+			<label asp-for="Cliente.Nome">Nome:</label>
+			<input asp-for="Cliente.Nome" class="form-control"/>
+			<span asp-validation-for="Cliente.Nome" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.Cpf">CPF:</label>
+			<input asp-for="Cliente.Cpf" class="form-control"/>
+			<span asp-validation-for="Cliente.Cpf" class="text-danger"></span>
+		</div>		
+		<div class=" col-5">
+			<label asp-for="Cliente.email">Email:</label>
+			<input asp-for="Cliente.email" class= "form-control"/>
+			<span asp-validation-for="Cliente.email"class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.telefone">Telefone:</label>
+			<input asp-for="Cliente.telefone" class="form-control" />
+			<span asp-validation-for="Cliente.telefone" class="text-danger"></span>
+		</div>
+			
+		<div class=" col-5">
+			<label asp-for="Cliente.Endereco.Cep">CEP:</label>
+			<input asp-for="Cliente.Endereco.Cep" class="form-control"/>
+			<span asp-validation-for="Cliente.Endereco.Cep" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.Endereco.NomeCidade">Nome da Cidade:</label>
+			<input asp-for="Cliente.Endereco.NomeCidade" class="form-control"/>
+			<span asp-validation-for="Cliente.Endereco.NomeCidade" class="text-danger"></span>
+		</div>			
+		<div class="col-5">
+			<label asp-for="Cliente.Endereco.Estado">Estado:</label>
+			<input asp-for="Cliente.Endereco.Estado" class="form-control" />
+			<span asp-validation-for="Cliente.Endereco.Estado" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.Endereco.Municipio">Municipio:</label>
+			<input asp-for="Cliente.Endereco.Municipio" class="form-control"/>
+			<span asp-validation-for="Cliente.Endereco.Municipio" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.Endereco.NomeRua">Nome da Rua:</label>
+			<input asp-for="Cliente.Endereco.NomeRua" class="form-control"/>
+			<span asp-validation-for="Cliente.Endereco.NomeRua" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.Endereco.Bairro">Bairro:</label>
+			<input asp-for="Cliente.Endereco.Bairro" class="form-control"/>
+			<span asp-validation-for="Cliente.Endereco.Bairro" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.Endereco.NumerodaCasa">Número da Casa:</label>
+			<input asp-for="Cliente.Endereco.NumerodaCasa" class="form-control" />
+			<span asp-validation-for="Cliente.Endereco.NumerodaCasa" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="Cliente.Endereco.Logradouro">Logradouro:</label>
+			<input asp-for="Cliente.Endereco.Logradouro" class="form-control" />
+			<span asp-validation-for="Cliente.Endereco.Logradouro" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="SenhasUsuarios.Senha">Senha:</label>
+			<input asp-for="SenhasUsuarios.Senha" class="form-control" />
+			<span asp-validation-for="SenhasUsuarios.Senha" class="text-danger"></span>
+		</div>
+		<div class=" col-5">
+			<label asp-for="SenhasUsuarios.ConfirmarSenha">Confirmar Senha:</label>
+			<input asp-for="SenhasUsuarios.ConfirmarSenha" class="form-control" />
+			<span asp-validation-for="SenhasUsuarios.ConfirmarSenha" class="text-danger"></span>
+		</div>
+		
+				
+    </div>
+	 <div asp-validation-summary="ModelOnly"><</div>
+
+	 <input type="submit" value="Cadastrar" class="btn-outline-info"/>
+
+</form>

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecommerce_Solutech.Data;
 
@@ -10,9 +11,11 @@ using ecommerce_Solutech.Data;
 namespace ecommerce_Solutech.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231006183659_v586")]
+    partial class v586
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -231,6 +234,10 @@ namespace ecommerce_Solutech.Migrations
                     b.Property<int?>("EnderecoId")
                         .HasColumnType("int");
 
+                    b.Property<string>("HashSenha")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("IdEndereco")
                         .HasColumnType("int");
 
@@ -241,6 +248,11 @@ namespace ecommerce_Solutech.Migrations
                     b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<string>("login")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("telefone")
                         .IsRequired()
@@ -273,9 +285,8 @@ namespace ecommerce_Solutech.Migrations
                         .HasMaxLength(2)
                         .HasColumnType("varchar(2)");
 
-                    b.Property<string>("Logradouro")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("IdEndereco")
+                        .HasColumnType("int");
 
                     b.Property<string>("Municipio")
                         .IsRequired()
@@ -297,6 +308,8 @@ namespace ecommerce_Solutech.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdEndereco");
 
                     b.ToTable("Endereco");
                 });
@@ -437,6 +450,17 @@ namespace ecommerce_Solutech.Migrations
                         .HasForeignKey("EnderecoId");
 
                     b.Navigation("Endereco");
+                });
+
+            modelBuilder.Entity("ecommerce_Solutech.Models.Endereco", b =>
+                {
+                    b.HasOne("ecommerce_Solutech.Models.Endereco", "endereco")
+                        .WithMany()
+                        .HasForeignKey("IdEndereco")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("endereco");
                 });
 
             modelBuilder.Entity("ecommerce_Solutech.Models.ItemDoPedido", b =>
