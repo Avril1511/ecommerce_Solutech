@@ -9,38 +9,144 @@
     <link rel="stylesheet" href="~/ecommerce_Solutech.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ecommerce_Solutech</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+    <header class="py-3 mb-3 border-bottom">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li><a class="dropdown-item active" href="#" aria-current="page"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Visão geral</font></font></a></li>
+          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inventário</font></font></a></li>
+          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Clientes</font></font></a></li>
+          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Produtos</font></font></a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Relatórios</font></font></a></li>
+          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Análise</font></font></a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <form class="w-100 me-3" role="search">
+          <input type="search" class="form-control" placeholder="Procurar..." aria-label="Procurar">
+        </form>
+
+        <div class="flex-shrink-0 dropdown">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Novo projeto...</font></font></a></li>
+            <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configurações</font></font></a></li>
+            <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sair</font></font></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+    <div class="container-fluid pb-3">
+        <div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr;">
+            <div class="bg-body-tertiary border rounded-3">
+                <br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <div class="bg-body-tertiary border rounded-3">
+                <br><br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class = "row">
+            <div class = "col">
+            </div>
+            <div class="col">
+                <div class="flex-shrink-0 p-3" style="width: 280px;">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+                        <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                        <span class="fs-5 fw-semibold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dobrável</font></font></span>
+                    </a>
+                    <ul class="list-unstyled ps-0">
+                        <li class="mb-1">
+                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Lar
+                                    </font>
+                                </font>
+                            </button>
+                            <div class="collapse show" id="home-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Visão geral</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Atualizações</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Relatórios</font></font></a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/CRUD/Listar">Listar Cliente</a>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Painel
+                                    </font>
+                                </font>
+                            </button>
+                            <div class="collapse" id="dashboard-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Visão geral</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Semanalmente</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Por mês</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Anualmente</font></font></a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/ProdutoCRUD/Listar">Listar Produtos</a>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Pedidos
+                                    </font>
+                                </font>
+                            </button>
+                            <div class="collapse" id="orders-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Novo</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Processado</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enviado</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Devolvida</font></font></a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <li class="border-top my-3"></li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Conta
+                                    </font>
+                                </font>
+                            </button>
+                            <div class="collapse" id="account-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Novo...</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configurações</font></font></a></li>
+                                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sair</font></font></a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+        
+        </div>
     </div>
+   
 
     <footer class="border-top footer text-muted">
         <div class="container">
